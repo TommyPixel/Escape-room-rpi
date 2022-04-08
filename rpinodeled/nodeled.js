@@ -9,20 +9,28 @@ console.log(path.join(__dirname, 'public'));
 app.get('/', function(req, res){ 
             res.render('index',{status:"Press Button To change Status of Led !!"});
 });
-app.post('/led/on', function(req, res){
+app.post('/led/correct', function(req, res){
+gpio.write(32, false, function(err) {
+        if (err) throw err;
+            return;
+    });
 gpio.write(12, true, function(err) {
         if (err) throw err;
         console.log('Written True to pin');
             console.log(path.join(__dirname, 'public'));
-            return res.render('index', {status: "Led is On"});
+            return res.render('index', {status: "Answer Was Correct"});
     });
 });
-app.post('/led/off', function(req, res){
+app.post('/led/incorrect', function(req, res){
+gpio.write(32, true, function(err) {
+        if (err) throw err;
+            return;
+    });
 gpio.write(12, false, function(err) {
         if (err) throw err;
         console.log('Written False to pin');
             console.log(path.join(__dirname, 'public'));
-            return res.render('index',{status: "Led is Off"});
+            return res.render('index',{status: "Answer Was Wrong"});
     });
 });
 app.listen(4000, function () {
