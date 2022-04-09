@@ -1,14 +1,14 @@
-var express = require('express'); 
+    var express = require('express'); 
 var app = express();
 var path = require('path');
-var gpio = require('rpi-gpio');
-gpio.setup(12, gpio.DIR_OUT);
-gpio.setup(11, gpio.DIR_OUT);
+//var gpio = require('rpi-gpio');
+//gpio.setup(12, gpio.DIR_OUT);
+//gpio.setup(11, gpio.DIR_OUT);
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 console.log(path.join(__dirname, 'public'));
 app.get('/', function(req, res){ 
-            res.render('index',{status:"answer the Question"});
+            res.render('index',{status:"Waiting for your answer..."});
 });
 app.post('/led/correct', function(req, res){
 gpio.write(12, true, function(err) {

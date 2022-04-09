@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,900&family=Quicksand:wght@700&display=swap');
+
+body {
+  background-image: url("../img/Background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  outline: 10px solid white;
+  border: 10px solid rgba(255, 255, 255, 0.2);
+ }
+
+.quizcontainer {
+    background: rgba(163, 145, 145, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(147, 145, 145, 0.38);
+    margin:10% auto;
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    max-width: 550px;
+    height: 550px;
+}
+
+.question-style {
+    font-family: 'quicksand', sans-serif;
+    color: #ffffff;
+    margin: auto;
+    line-height: 100px;
+    vertical-align: middle;
+    max-width: max-content;
+    font-size: 48px;
+}
+
+.answers-buttons{
+  
+  max-width: max-content;
+  margin: 50px auto;
+}
+
+.button {  
+  border: 2.5px solid white;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 10px 10px;
+  cursor: pointer;
+  font-family: 'Nunito', 'quicksand', sans-serif;
+  font-size: 18px;
+}
+
+.question-reply {
+  font-family: 'quicksand', sans-serif;
+  color: #ffffff;
+  margin: auto;
+  line-height: 100px;
+  vertical-align: middle;
+  max-width: max-content;
+  font-size: 28px;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+/*.button2 {background-color: #4CAF50;} /* Green */
+/*.button3 {background-color: #f44336;} /* Red */ 
+/*.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+
