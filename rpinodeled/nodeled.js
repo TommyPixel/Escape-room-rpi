@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 var gpio = require('rpi-gpio');
 gpio.setup(12, gpio.DIR_OUT);
-gpio.setup(16, gpio.DIR_OUT);
+gpio.setup(40, gpio.DIR_OUT);
 gpio.setup(11, gpio.DIR_OUT);
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,13 +20,26 @@ gpio.write(12, true, function(err) {
             console.log(path.join(__dirname, 'public'));
             return res.render('index', {status: "Answer Was Correct"});
     });
+gpio.write(11, false, function(err) {
+        if (err) throw err;
+        console.log('Written false to pin 10');
+            console.log(path.join(__dirname, 'public'));
+            return;
+    });
+
+gpio.write(40, false, function(err) {
+        if (err) throw err;
+        console.log('Written false to pin 40');
+            console.log(path.join(__dirname, 'public'));
+            return;
+    });
 });
 
 //Unlock Door
 app.get('/unlock', function(req, res){
-gpio.write(16, true, function(err) {
+gpio.write(40, true, function(err) {
         if (err) throw err;
-        console.log('Written True to pin 16');
+        console.log('Written True to pin 40');
             console.log(path.join(__dirname, 'public'));
             return res.render('index', {status: "Answer Was Correct"});
     });
@@ -75,9 +88,9 @@ gpio.write(11, false, function(err) {
             return;
     });
 
-gpio.write(16, false, function(err) {
+gpio.write(40, false, function(err) {
         if (err) throw err;
-        console.log('Written false to pin 16');
+        console.log('Written false to pin 40');
             console.log(path.join(__dirname, 'public'));
             return;
     });
